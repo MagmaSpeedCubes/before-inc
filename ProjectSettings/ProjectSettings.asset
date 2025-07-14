@@ -4,7 +4,7 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 28
-  productGUID: cee2de2123d614e01bf06a83dbb55da6
+  productGUID: 98e67bd79a7f04383a0b89295e9b9fd5
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   AndroidEnableSustainedPerformanceMode: 0
@@ -13,7 +13,7 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: DefaultCompany
-  productName: Infinite Runner
+  productName: Before Inc
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -695,7 +695,7 @@ PlayerSettings:
   ps4GarlicHeapSize: 2048
   ps4ProGarlicHeapSize: 2560
   playerPrefsMaxSize: 32768
-  ps4Passcode: ZNjk0I7sc85AtosE4b56mXpNIcZOuVtA
+  ps4Passcode: ygOVHsjmLeAeABKANLEzUx6bmnxpuLr3
   ps4pnSessions: 1
   ps4pnPresence: 1
   ps4pnFriends: 1
@@ -784,14 +784,14 @@ PlayerSettings:
   editorAssembliesCompatibilityLevel: 1
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
-  metroPackageName: Infinite Runner
+  metroPackageName: Before Inc
   metroPackageVersion: 
   metroCertificatePath: 
   metroCertificatePassword: 
   metroCertificateSubject: 
   metroCertificateIssuer: 
   metroCertificateNotAfter: 0000000000000000
-  metroApplicationDescription: Infinite Runner
+  metroApplicationDescription: Before Inc
   wsaImages: {}
   metroTileShortName: 
   metroTileShowName: 0
@@ -862,10 +862,10 @@ PlayerSettings:
   captureStartupLogs: {}
   activeInputHandler: 2
   windowsGamepadBackendHint: 0
-  cloudProjectId: dda3f40d-5079-47b6-972a-07c2725c1ef2
+  cloudProjectId: 509cae39-c67f-47fa-8942-76e6d5b7c025
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: Infinite Runner 2025-07-14_12-09-09
+  projectName: Before Inc
   organizationId: bffwouj3472
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
