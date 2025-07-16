@@ -1,16 +1,45 @@
 using UnityEngine;
 using UnityEngine.UI;
-public class MenuButton
+[RequireComponent(typeof(AudioSource))]
+public class MenuButton : MonoBehaviour
 {
+    [SerializeField] private bool locked;
     [SerializeField] private Canvas[] hideCanvas;
     [SerializeField] private Canvas showCanvas;
 
+    private AudioSource audioSource;
+    [SerializeField] private AudioClip press;
+    [SerializeField] private AudioClip error;
+
+    void Awake()
+    {
+        audioSource = GetComponent<AudioSource>();
+
+        if (locked)
+        {
+            GetComponent<Image>().color = new Color(0.5f, 0.5f, 0.5f, 1f);
+        }
+        else
+        {
+            GetComponent<Image>().color = new Color(1f, 1f, 1f, 1f);
+        }
+    }
+
     public void OnClick()
     {
-        for (int i = 0; i < hideCanvas.Length; i++)
+        if (!locked)
         {
-            hideCanvas[i].enabled = false;
+            for (int i = 0; i < hideCanvas.Length; i++)
+            {
+                hideCanvas[i].enabled = false;
+            }
+            showCanvas.enabled = true;
+            audioSource.PlayOneShot(press);
         }
-        showCanvas.enabled = true;
+        else
+        {
+            audioSource.PlayOneShot(error);
+        }
+
     }
 }
