@@ -10,10 +10,16 @@ public class GameInfo
     public const string currencyUnit = "Money";
 
 
-    public static float politicalSensitivity = 1;
+    public static float politicalSensitivity = 1f;
 
     public static ActionButton selectedActionButton;
 
     public static MapRegion selectedMapRegion;
+
+
+    public static float support = 100f;
+    public static float carbonInAtmosphere = 1000000f;
+
+    public static float emissionRate = 0f;
 
 }
