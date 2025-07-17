@@ -3,8 +3,8 @@ using UnityEngine;
 public class Timer : MonoBehaviour
 {
     [SerializeField] private float secondsPerTimeUnit = 1f;
-    private float time = 0f;
-    private bool active = false;
+    private static float time = 0f;
+    private static bool active = false;
 
     public static Timer instance;
 
@@ -29,29 +29,35 @@ public class Timer : MonoBehaviour
 
     }
 
-    public void StartTimer()
+    public static void StartTimer()
     {
         active = true;
     }
 
-    public void StopTimer()
+    public static void StopTimer()
     {
         active = false;
     }
 
-    public void ResetTimer()
+    public static void ResetTimer()
     {
         time = 0f;
     }
 
-    public void SetTime(float newTime)
+    public static void SetTime(float newTime)
     {
         time = newTime;
     }
 
-    public float GetTime()
+    public static float GetTime()
     {
         return time;
+    }
+
+
+    public static bool IsRunning()
+    {
+        return active;
     }
 
 
