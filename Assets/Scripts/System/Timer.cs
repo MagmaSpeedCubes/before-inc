@@ -1,10 +1,13 @@
+using System.Collections;
 using UnityEngine;
+using System.Reflection;
 
 public class Timer : MonoBehaviour
 {
     [SerializeField] private float secondsPerTimeUnit = 1f;
     private static float time = 0f;
     private static bool active = false;
+    private static int lastTick = 0;
 
     public static Timer instance;
 
@@ -25,6 +28,11 @@ public class Timer : MonoBehaviour
         if (active)
         {
             time += Time.deltaTime / secondsPerTimeUnit;
+        }
+        if (lastTick < time + 1)
+        {
+            GameInfo.gameHandler.Tick();
+            lastTick += 1;
         }
 
     }

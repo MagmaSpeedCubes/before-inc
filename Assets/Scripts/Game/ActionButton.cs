@@ -30,6 +30,8 @@ public class ActionButton : MonoBehaviour
     [SerializeField] private TextMeshProUGUI titleText;
     [SerializeField] private TextMeshProUGUI descriptionText;
 
+    [SerializeField] private TextMeshProUGUI costText;
+
     [SerializeField] private int cost;
 
     [SerializeField] private float politicalEffect;
@@ -47,6 +49,10 @@ public class ActionButton : MonoBehaviour
             {
                 Initialize();
             }
+        }
+        else
+        {
+            Refresh();
         }
         
     }
@@ -105,10 +111,14 @@ public class ActionButton : MonoBehaviour
 
     public void OnClick()
     {
-        titleText.text = name;
-        descriptionText.text = description;
-        descriptionText.text += "\n" + cost + " " + GameInfo.currencyUnit;
-        GameInfo.selectedActionButton = this;
+        if (unlockStatus != 0)
+        {
+            titleText.text = name;
+            descriptionText.text = description;
+            costText.text = "Fund\n" + cost + " " + GameInfo.currencyUnit;
+            GameInfo.selectedActionButton = this;
+        }
+
     }
 
     

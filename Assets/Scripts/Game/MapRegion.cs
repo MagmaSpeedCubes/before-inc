@@ -10,7 +10,7 @@ public class MapRegion : MonoBehaviour
     [SerializeField] private float temperatureDifferenceFrom15C;
     [SerializeField] private float vulnerability;
 
-
+    
     [SerializeField] private TextMeshProUGUI regionNameText;
     [SerializeField] private TextMeshProUGUI regionDescriptionText;
 
@@ -19,11 +19,43 @@ public class MapRegion : MonoBehaviour
     private Texture2D tex;
     private Sprite sprite;
 
+
+    private float supportLevel;
+    private int adjustedPopulationInMillions;
+    private float adjustedEmissionsPerCapita;
+    private float adjustedWealthPerCapita;
+    private float adjustedTemperatureDifference;
+
+
+
     void Awake()
     {
         sr = GetComponent<SpriteRenderer>();
         sprite = sr.sprite;
         tex = sprite.texture;
+    }
+
+    public void Initialize()
+    {
+        supportLevel = 80;
+        adjustedPopulationInMillions = (int)populationInMillions;
+        adjustedEmissionsPerCapita = emissionsPerCapita;
+        adjustedWealthPerCapita = wealthPerCapita;
+        adjustedTemperatureDifference = temperatureDifferenceFrom15C;
+
+
+        Tick();
+        
+
+    }
+
+    public void Tick()
+    {
+        GameInfo.populationInMillions += adjustedPopulationInMillions;
+        GameInfo.globalWealth += adjustedWealthPerCapita * adjustedPopulationInMillions;
+        GameInfo.weightedTemperatureChange += adjustedTemperatureDifference * adjustedPopulationInMillions;
+        GameInfo.emissionRate += adjustedEmissionsPerCapita * adjustedPopulationInMillions;
+        GameInfo.weightedSupportLevel = supportLevel * adjustedPopulationInMillions;
     }
 
     public bool IsPixelVisible(Vector2 worldPos)

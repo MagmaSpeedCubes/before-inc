@@ -7,6 +7,7 @@ using System.Reflection;
 public class TextData : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI textObject;
+    [SerializeField] private string textPrefix;
     [SerializeField] private string textSuffix;
     [SerializeField] private string gameInfoVariableName; // Name of GameInfo variable
 
@@ -20,6 +21,6 @@ public class TextData : MonoBehaviour
         {
             value = Convert.ToSingle(field.GetValue(null));
         }
-        textObject.text = "" + value + textSuffix;
+        textObject.text = textPrefix + value + textSuffix;
     }
 }
