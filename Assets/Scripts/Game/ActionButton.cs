@@ -106,7 +106,17 @@ public class ActionButton : MonoBehaviour
     {
         unlockStatus = 2;
 
+        Effect();
+    }
+
+    public void Effect()
+    {
         
+    }
+
+    public int GetCost()
+    {
+        return cost;
     }
 
     public void OnClick()

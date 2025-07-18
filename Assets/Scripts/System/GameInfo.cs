@@ -24,7 +24,6 @@ public class GameInfo
     public static float carbonInAtmosphere = 1000000f;
 
     public static float emissionRate = 0f;
-    public static float annualEmissionRate = 0f; //for stats only
     public static float recentTemperatureChange = 0f;
     public static float weightedTemperatureChange;//sum of all regions, needs to be recalculated
     public static float weightedSupportLevel;//sum of all regions, needs to be recalculated
@@ -32,6 +31,8 @@ public class GameInfo
     public static float fundingCoefficient = 0.000002f;
     public static int populationInMillions;
     public static float averageTemperatureChange = 1.5f;
+
+    public static float environment = 100f;
 
     
 
