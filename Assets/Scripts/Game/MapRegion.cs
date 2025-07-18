@@ -20,11 +20,11 @@ public class MapRegion : MonoBehaviour
     private Sprite sprite;
 
 
-    private float supportLevel;
-    private int adjustedPopulationInMillions;
-    private float adjustedEmissionsPerCapita;
-    private float adjustedWealthPerCapita;
-    private float adjustedTemperatureDifference;
+    public float supportLevel;
+    public int adjustedPopulationInMillions;
+    public float adjustedEmissionsPerCapita;
+    public float adjustedWealthPerCapita;
+    public float adjustedTemperatureDifference;
 
 
 

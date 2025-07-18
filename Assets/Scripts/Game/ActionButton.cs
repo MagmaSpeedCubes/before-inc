@@ -17,6 +17,7 @@ public class ActionButton : MonoBehaviour
 
     [SerializeField] private Image tile;
     [SerializeField] private Image icon;
+    [SerializeField] private TextMeshProUGUI number;
 
 
 
@@ -34,9 +35,6 @@ public class ActionButton : MonoBehaviour
 
     [SerializeField] private int cost;
 
-    [SerializeField] private float politicalEffect;
-    [SerializeField] private float emissionsEffect;
-    [SerializeField] private float environmentalEffect;
 
     private bool localGameActive = false;
 
@@ -75,7 +73,7 @@ public class ActionButton : MonoBehaviour
 
     public void Refresh()
     {
-        if (unlockStatus == 0)
+        if (unlockStatus != 2)
         {
             bool unlockable = true;
             for (int i = 0; i < prerequisites.Length; i++)
@@ -85,14 +83,25 @@ public class ActionButton : MonoBehaviour
                     unlockable = false;
                 }
             }
+
+            for (int i = 0; i < mutuallyExclusive.Length; i++)
+            {
+                if (mutuallyExclusive[i].unlockStatus == 2)
+                {
+                    unlockable = false;
+                }
+            }
             if (unlockable)
             {
                 unlockStatus = 1;
                 icon.color = new Color(1f, 1f, 1f, 1f);
+                number.color = new Color(1f, 1f, 1f, 1f);
             }
             else
             {
+                unlockStatus = 0;
                 icon.color = new Color(1f, 1f, 1f, 0f);
+                number.color = new Color(1f, 1f, 1f, 0f);
             }
         }
 
@@ -105,14 +114,12 @@ public class ActionButton : MonoBehaviour
     public void Unlock()
     {
         unlockStatus = 2;
+        string functionName = name.Replace(" ", "");
 
-        Effect();
+        ReflectionCaller.CallFunctionRemote("PolicyFunctions", functionName);
     }
 
-    public void Effect()
-    {
-        
-    }
+
 
     public int GetCost()
     {

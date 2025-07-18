@@ -34,6 +34,8 @@ public class GameInfo
 
     public static float environment = 100f;
 
+    public static float environmentResilience = 0.5f;
+
     
 
     

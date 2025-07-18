@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using UnityEngine.UI;
 [RequireComponent(typeof(AudioSource))]
 public class BuyButton : MonoBehaviour
 {
@@ -9,6 +9,7 @@ public class BuyButton : MonoBehaviour
     [SerializeField] private AudioClip press;
     [SerializeField] private AudioClip error;
 
+
     void Awake()
     {
         audioSource = GetComponent<AudioSource>();
@@ -16,10 +17,16 @@ public class BuyButton : MonoBehaviour
     public void Update()
     {
         policy = GameInfo.selectedActionButton;
+        if (GameInfo.currency >= policy.GetCost() && policy.unlockStatus != 2)
+        {
+            GetComponent<Image>().color = new Color(1f, 1f, 1f, 1f);
+        } else {
+            GetComponent<Image>().color = new Color(0.5f, 0.5f, 0.5f, 1f);
+        }
     }
     public void OnClick()
     {
-        if (GameInfo.currency >= policy.GetCost())
+        if (GameInfo.currency >= policy.GetCost() && policy.unlockStatus != 2)
         {
             GameInfo.currency -= policy.GetCost();
             policy.Unlock();
