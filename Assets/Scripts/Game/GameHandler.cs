@@ -29,12 +29,15 @@ public class GameHandler : MonoBehaviour
     public void StartGame()
     {
 
+        GameInfo.gameSpeed = 0;
+
         Timer.ResetTimer();
         Timer.StartTimer();
 
         for(int i=0; i<mapRegions.Length; i++) {
             mapRegions[i].Initialize();
         }
+        
 
         menuAudio.Stop();
         gameAudio.Play();
@@ -48,20 +51,31 @@ public class GameHandler : MonoBehaviour
         GameInfo.globalWealth = 0;
         GameInfo.weightedTemperatureChange = 0;
         GameInfo.emissionRate = 0;
+        GameInfo.weightedSupportLevel = 0;
+
+        float oldTemperature = GameInfo.averageTemperatureChange;
+
         for (int i = 0; i < mapRegions.Length; i++)
         {
             mapRegions[i].Tick();
+            double warmingCoefficient = GameInfo.carbonInAtmosphere * 0.000000001;
+            mapRegions[i].Warm((float)(warmingCoefficient));
+
         }
+
 
         GameInfo.globalWealth *= GameInfo.fundingCoefficient;
 
         GameInfo.currency += GameInfo.globalWealth;
-        
+
         //Adds funding
 
         GameInfo.averageTemperatureChange = GameInfo.weightedTemperatureChange / GameInfo.populationInMillions;
         GameInfo.support = GameInfo.weightedSupportLevel / GameInfo.populationInMillions;
         GameInfo.carbonInAtmosphere += GameInfo.emissionRate / 12;
+        GameInfo.recentTemperatureChange = 12 * (GameInfo.averageTemperatureChange - oldTemperature);
+        
+        
         
 
     }

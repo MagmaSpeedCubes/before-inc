@@ -1,6 +1,6 @@
 using UnityEngine;
 using TMPro;
-
+using System;
 public class MapRegion : MonoBehaviour
 {
     [SerializeField] private string regionName;
@@ -35,6 +35,17 @@ public class MapRegion : MonoBehaviour
         tex = sprite.texture;
     }
 
+    void Update()
+    {
+        if (GameInfo.selectedMapRegion == this)
+        {
+            Refresh();
+        }
+        else
+        {
+            SetColor();
+        }
+    }
     public void Initialize()
     {
         supportLevel = 80;
@@ -45,7 +56,7 @@ public class MapRegion : MonoBehaviour
 
 
         Tick();
-        
+
 
     }
 
@@ -55,7 +66,36 @@ public class MapRegion : MonoBehaviour
         GameInfo.globalWealth += adjustedWealthPerCapita * adjustedPopulationInMillions;
         GameInfo.weightedTemperatureChange += adjustedTemperatureDifference * adjustedPopulationInMillions;
         GameInfo.emissionRate += adjustedEmissionsPerCapita * adjustedPopulationInMillions;
-        GameInfo.weightedSupportLevel = supportLevel * adjustedPopulationInMillions;
+        GameInfo.weightedSupportLevel += supportLevel * adjustedPopulationInMillions;
+    }
+
+    public void SetColor()
+    {
+        float t = adjustedTemperatureDifference;
+        Color color;
+
+        if (t <= 2.5f)
+        {
+            // White (0) to Yellow (3)
+            float lerpT = Mathf.InverseLerp(0f, 3f, t);
+            color = Color.Lerp(Color.white, Color.yellow, lerpT);
+        }
+        else
+        {
+            // Yellow (3) to Red (5)
+            float lerpT = Mathf.InverseLerp(3f, 5f, t);
+            color = Color.Lerp(Color.yellow, Color.red, lerpT);
+        }
+
+
+        color.a = adjustedTemperatureDifference / 5;
+        sr.color = color;
+    }
+
+
+    public void Warm(float amount)
+    {
+        adjustedTemperatureDifference += (vulnerability + 1) * amount;
     }
 
     public bool IsPixelVisible(Vector2 worldPos)
@@ -85,6 +125,11 @@ public class MapRegion : MonoBehaviour
         spriteRenderer.color = new Color(1f, 1f, 1f, 0.4f);
         regionNameText.text = regionName;
 
+        Refresh();
+    }
+
+    public void Refresh()
+    {
         string description = "Climate Risk: ";
         if (vulnerability <= 0.3f)
         {
@@ -98,6 +143,8 @@ public class MapRegion : MonoBehaviour
         {
             description += "Medium";
         }
+        description += "\n Temperature Increase:";
+        description += Math.Round((double)adjustedTemperatureDifference, 3) + "'C";
 
         regionDescriptionText.text = description;
     }
