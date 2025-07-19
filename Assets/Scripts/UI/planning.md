@@ -182,12 +182,6 @@ game ui:
 Overview: Show info and stuff
 Emissions: Policies to decrease emissions
 
-[Transportation Initiative]
--> 
-
-[Energy Initiative]
-
-[Industrial Initiative]
 
 
 
@@ -266,7 +260,48 @@ only implement if time(likely)
 
 
 
-main mechanics
+Emissions:
+
+Transportation Initiative
+Research and prepare for a transition to alternative transportation options 
+[Branch into FE, IR, AT]
+
+Fuel Efficiency
+Improve fuel efficiency of private vehicles. Decreases emissions, especially in wealthy regions
+
+Electric Cars[ME with hybrid]
+Develop private vehicles that run entirely on battery electricity. Significantly decreases emissions in wealthy regions. Decreases support in poor regions.
+
+Hybrid Cars[ME with electric]
+Develop private vehicles that can utilize both gasoline and battery power. Slightly decreases emissions in wealthy regions. Slightly decreases support in poor regions.
+
+Electrify Railways
+Upgrade local and national railways to run on electrical power. Slightly decreases emissions. 
+
+Improved Passenger Railways
+Upgrade and improve efficiency of passenger railways and encourage people to use public transportation. Very Significantly decreases emissions, especially in poor regions. Slightly increases support.
+
+Improved Cargo Railways
+Upgrade and improve efficiency of cargo railways and implement a tax on trucking. Significantly decreases emissions.
+
+Active Transportation
+Improve walking and bike paths in cities and encourage people to use active transportation. Slightly decreases emissions.
+
+Walkable Cities
+Rezone cities to allow for mixed use walkable developments. Decreases emissions over time. Increases support. 
+
+
+
+
+[Energy Initiative]
+
+Energy Initiative
+Research and prepare for a transition to alternative energy options 
+[Branch into FE, IR, AT]
+
+[Industrial Initiative]
+
+
 
 Creditss
 World Map - Red Orange Juice
