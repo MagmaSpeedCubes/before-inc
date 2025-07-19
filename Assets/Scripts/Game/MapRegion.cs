@@ -10,7 +10,7 @@ public class MapRegion : MonoBehaviour
     [SerializeField] private float temperatureDifferenceFrom15C;
     [SerializeField] private float vulnerability;
 
-    
+
     [SerializeField] private TextMeshProUGUI regionNameText;
     [SerializeField] private TextMeshProUGUI regionDescriptionText;
 
@@ -143,6 +143,8 @@ public class MapRegion : MonoBehaviour
         {
             description += "Medium";
         }
+        description += "\n Per Capita Emissions:";
+        description += Math.Round((double)adjustedEmissionsPerCapita, 3) + "T/yr";
         description += "\n Temperature Increase:";
         description += Math.Round((double)adjustedTemperatureDifference, 3) + "'C";
 
@@ -160,6 +162,32 @@ public class MapRegion : MonoBehaviour
     {
         GameInfo.selectedMapRegion = null;
     }
+
+    public float GetWealth()
+    {
+        return adjustedWealthPerCapita;
+    }
+
+    public float GetEmissions()
+    {
+        return adjustedEmissionsPerCapita;
+    }
+
+    public void ReduceEmissions(float amount)
+    {
+        adjustedEmissionsPerCapita -= amount;
+        if (adjustedEmissionsPerCapita < 0)
+        {
+            adjustedEmissionsPerCapita = 0;
+        }
+    }
+
+    public int GetPopulation()
+    {
+        return adjustedPopulationInMillions;
+    }
+        
+    
 }
 
 

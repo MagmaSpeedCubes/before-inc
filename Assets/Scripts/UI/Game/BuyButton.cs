@@ -17,11 +17,16 @@ public class BuyButton : MonoBehaviour
     public void Update()
     {
         policy = GameInfo.selectedActionButton;
-        if (GameInfo.currency >= policy.GetCost() && policy.unlockStatus != 2)
+        if (policy != null)
         {
-            GetComponent<Image>().color = new Color(1f, 1f, 1f, 1f);
-        } else {
-            GetComponent<Image>().color = new Color(0.5f, 0.5f, 0.5f, 1f);
+            if (GameInfo.currency >= policy.GetCost() && policy.unlockStatus != 2)
+            {
+                GetComponent<Image>().color = new Color(1f, 1f, 1f, 1f);
+            }
+            else
+            {
+                GetComponent<Image>().color = new Color(0.5f, 0.5f, 0.5f, 1f);
+            }
         }
     }
     public void OnClick()
