@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Collections;
+using System.Collections.Generic;
 
 
 public class PopupWindow : MonoBehaviour
@@ -29,6 +31,21 @@ public class PopupWindow : MonoBehaviour
     {
         instance.RenderPopupWindow(newImage, title, text);
     }
+
+    public static void ShowPopupWindowDelayed(Sprite newImage, string title, string text, float delayTicks)
+    {
+        instance.StartCoroutine(instance.RenderPopupWindowDelayed(newImage, title, text, delayTicks));
+    }
+
+    public IEnumerator RenderPopupWindowDelayed(Sprite newImage, string title, string text, float delayTicks)
+    {
+        float startTick = Timer.GetTime();
+        while (Timer.GetTime() < startTick + delayTicks)
+        {
+            yield return null;
+        }
+        RenderPopupWindow(newImage, title, text);
+    }
     public void RenderPopupWindow(Sprite newImage, string title, string text)
     {
         Canvas canvas = GetComponent<Canvas>();
@@ -39,10 +56,12 @@ public class PopupWindow : MonoBehaviour
         }
         else
         {
-            image.color = new Color(1f, 1f, 1f, 1f);
+            image.color = new Color(1f, 1f, 1f, 0f);
         }
 
         titleText.text = title;
         bodyText.text = text;
     }
+
+
 }

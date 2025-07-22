@@ -21,6 +21,7 @@ public class MapRegion : MonoBehaviour
 
 
     public float supportLevel;
+    public float contributionLevel;
     public int adjustedPopulationInMillions;
     public float adjustedEmissionsPerCapita;
     public float adjustedWealthPerCapita;
@@ -49,6 +50,7 @@ public class MapRegion : MonoBehaviour
     public void Initialize()
     {
         supportLevel = 80;
+        contributionLevel = 1;
         adjustedPopulationInMillions = (int)populationInMillions;
         adjustedEmissionsPerCapita = emissionsPerCapita;
         adjustedWealthPerCapita = wealthPerCapita;
@@ -63,7 +65,7 @@ public class MapRegion : MonoBehaviour
     public void Tick()
     {
         GameInfo.populationInMillions += adjustedPopulationInMillions;
-        GameInfo.globalWealth += adjustedWealthPerCapita * adjustedPopulationInMillions;
+        GameInfo.globalWealth += adjustedWealthPerCapita * contributionLevel * adjustedPopulationInMillions;
         GameInfo.weightedTemperatureChange += adjustedTemperatureDifference * adjustedPopulationInMillions;
         GameInfo.emissionRate += adjustedEmissionsPerCapita * adjustedPopulationInMillions;
         GameInfo.weightedSupportLevel += supportLevel * adjustedPopulationInMillions;
@@ -185,6 +187,11 @@ public class MapRegion : MonoBehaviour
     public int GetPopulation()
     {
         return adjustedPopulationInMillions;
+    }
+
+    public string GetName()
+    {
+        return regionName;
     }
         
     

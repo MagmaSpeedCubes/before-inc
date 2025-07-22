@@ -184,18 +184,6 @@ Emissions: Policies to decrease emissions
 
 
 
-
-
-
-Environment: Policies to restore environment
-
-[Construction Initiative]
-
-
-
-[Agricultural Initiative]
-
-
 Operation: Policies to keep authority running
 
 Authority: 
@@ -217,7 +205,7 @@ Create and distribute curricula on climate change to educate students on global 
 
 
 Censorship
-Heavily restrict communications to prevent public criticism of climate mitigation. Support frozen for 1 month. Decreases Support.
+Heavily restrict communications to prevent public criticism of climate mitigation. Support frozen for 1 year. Decreases Support.
 
 Fake News
 Create and disseminate misinformation to disguise strategic failures. Support frozen for 1 month. Significantly decreases Support.
@@ -288,7 +276,7 @@ Active Transportation
 Improve walking and bike paths in cities and encourage people to use active transportation. Slightly decreases emissions.
 
 Walkable Cities
-Rezone cities to allow for mixed use walkable developments. Decreases emissions over time. Increases support. 
+Rezone cities to allow for mixed use walkable developments. Decreases emissions. Increases support. 
 
 
 
@@ -297,9 +285,76 @@ Rezone cities to allow for mixed use walkable developments. Decreases emissions 
 
 Energy Initiative
 Research and prepare for a transition to alternative energy options 
-[Branch into FE, IR, AT]
+
+Insulation
+Retrofit buildings to decrease thermal transfer and retain indoor temperatures. Decreases emissions.
+
+Electric Appliances
+Redesign existing household appliances to run on electrical power. Slightly decreases emissions.
+
+Energy Efficient Appliances
+Research and develop household appliances designed to run on low energy. Decreases emissions.
+
+LED Lighting
+Invest in and encourage the use of LED light bulbs. Slightly decreases emissions. 
+
+Renewable Energy
+Invest in and construct solar and wind power plants to generate clean energy. Significantly decreases emissions. Slightly increases support.
+
+Nuclear Energy
+Invest in and construct nuclear power plants to generate clean energy. Significantly decreases emissions. Slightly decreases support.
+
+Cleaner Coal
+Retrofit older fossil fuel power plants to run more efficiently and produce less pollution. Slightly decreases emissions. Decreases support.
+
+
+
+
+
 
 [Industrial Initiative]
+
+Industrial Initiative
+Research and prepare for a transition to alternative manufacturing methods.
+
+Improve Supply Chains
+Protect supplies of essential goods by stockpiling raw materials and maintaining transport links. Slightly decreases emissions. 
+
+Safety Regulations
+Increase safety standards to reduce the chance of manufacturing accidents. Slightly decreases emissions. Increases support.
+
+Improved Materials
+Research and develop newer green materials to replace traditional plastics. Slightly decreases emissions.
+
+Advanced Materials
+Research and develop advanced materials to replace rubbers and metals. Decreases emissions. Increases support. 
+
+Regulate Petroleum Products
+Regulate the use of polluting petroleum products. Slightly decreases emissions.
+
+Ban Petroleum Products
+Ban the use of polluting petroleum products. Decreases emissions. Decreases support.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Environment: Policies to restore environment
+
+[Construction Initiative]
+
+
+
+[Agricultural Initiative]
 
 
 
