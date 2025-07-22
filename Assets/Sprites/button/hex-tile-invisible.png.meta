@@ -173,7 +173,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      hex-tile-invisible_0: -1321586197422897650
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

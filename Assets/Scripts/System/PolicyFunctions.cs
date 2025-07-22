@@ -554,56 +554,104 @@ public class PolicyFunctions : MonoBehaviour
 
 
 
+    public void DevelopmentInitiative()
+    {
+
+    }
+
+    public void LandUse1()
+    {
+        GameInfo.environment += 2;
+    }
+
+    public void LandUse2()
+    {
+        GameInfo.environment += 5;
+    }
+
+    public void GreenBuildings()
+    {
+        GameInfo.environment += 3;
+    }
+
+    public void EmergencyInfrastructure1()
+    {
+        GameInfo.environment += 4;
+    }
+
+    public void EmergencyInfrastructure2()
+    {
+        GameInfo.environment += 10;
+    }
+
+    public void IntegratedDevelopments()
+    {
+        GameInfo.environment += 20;
+    }
 
 
-// Development Initiative
-// Research and prepare for a transition to greener construction.
+    public void AgriculturalInitiative()
+    {
 
-// Land Use 1
-// Redevelop urban dead zones into new neighborhoods to reduce impact on the environment. Slightly restore environment and reduce emissions
+    }
 
-// Land Use 2
-// Rezone urban lots to allow for higher density development to reduce impact on the environment. Signifiantly restore environment and reduce emeissions.
+    public void WaterEfficiency1()
+    {
+        GameInfo.environment += 8;
+        for (int i = 0; i < mapRegions.Length; i++)
+        {
+            mapRegions[i].supportLevel -= 6;
 
-// Green Buildings 
-// Require new developments to integrate well with the local ecosystem. Restore environment.
+        }
 
-// Emergency Infrastructure I
-// Retrofit existing infrastructure to alleviate extreme weather events. Restore environment.
+        int randomIndex = UnityEngine.Random.Range(0, mapRegions.Length);
+        MapRegion randomRegion = mapRegions[randomIndex];
+        string regionName = randomRegion.GetName();
+        string title = regionName + " farmers upset with water restrictions";
+        string text = "Farmers in the " + regionName + " region are upset with new water restrictions";
+        PopupWindow.ShowPopupWindowDelayed(null, title, text, 3f);
+    }
 
-// Emergency Infrastructure II
-// Build infrastructure designed to alleviate extreme weather events. Very significantly restore environment.
-
-// Integrated Developments(requires LU2, GB, EI2)
-// Require all developments to integrate well with the local ecosystem. Very significantly restore environment.
-
+    public void WaterEfficiency2()
+    {
+        GameInfo.environment += 12;
+    }
 
 
+    public void Fertilizer1()
+    {
+        for (int i = 0; i < mapRegions.Length; i++)
+        {
+            mapRegions[i].supportLevel -= 2;
 
-// Agrigultural Initiative
-// Research and prepare for a transition to greener farming methods.
+        }
+        GameInfo.environment += 5;
+    }
 
-// Water Efficiency 1
-// Ban the use of inefficient watering methods to reduce water use of farms. Signfiicantly reduce Support. Significantly restore environment.
+    public void Fertilizer2()
+    {
+        for (int i = 0; i < mapRegions.Length; i++)
+        {
+            mapRegions[i].supportLevel -= 4;
 
-// Water Efficiency 2
-// Use drip irrigation for the watering of thirsty crops. Very significantly restore environment.
+        }
+        GameInfo.environment += 9;
+    }
 
-// Fertilizer 1
-// Reuse natural farm and compost products as agriculturan fertilizer. Reduce support. Restore environment.
+    public void Qualifications1()
+    {
+        GameInfo.environment += 2;
+    }
 
-// Fertilizer 2
-// Ban the use of chemical fertilizers and pivot to natural alternatives. Reduce support. Significantly restore environment.
+    public void Qualifications2()
+    {
+        GameInfo.environment += 5;
+    }
 
-// Qualifications 1
-// Require new farmers to learn about farming practices to improve efficiency. Slightly restore environment.
-
-// Qualifications 2
-// Require existing farmers to prove their experience to improve efficiency. Restore environment.
-
-// Effective Land Use(Requires LU2 + Q2)
-// Implement strict land use policies to ensure developed land is used as efficiently as possible. Very significantly restore environment.
-
+    public void EffectiveLandUse()
+    {
+        GameInfo.environment += 16;
+    }
 
 
 

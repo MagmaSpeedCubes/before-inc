@@ -65,10 +65,34 @@ public class MapRegion : MonoBehaviour
     public void Tick()
     {
         GameInfo.populationInMillions += adjustedPopulationInMillions;
-        GameInfo.globalWealth += adjustedWealthPerCapita * contributionLevel * adjustedPopulationInMillions;
+        
         GameInfo.weightedTemperatureChange += adjustedTemperatureDifference * adjustedPopulationInMillions;
         GameInfo.emissionRate += adjustedEmissionsPerCapita * adjustedPopulationInMillions;
         GameInfo.weightedSupportLevel += supportLevel * adjustedPopulationInMillions;
+
+        if (supportLevel > 0)
+        {
+          GameInfo.globalWealth += adjustedWealthPerCapita * contributionLevel * adjustedPopulationInMillions;  
+        }
+
+        Debug.Log(GameInfo.environment/100);
+        Debug.Log("Vulnerability:"+vulnerability);
+        if (GameInfo.environment / 100 < vulnerability && supportLevel > 0)
+        {
+            supportLevel += (GameInfo.environment / 100 - vulnerability);
+            Debug.Log("In Danger. Decreasing support by " + (GameInfo.environment / 100 - vulnerability));
+
+        }
+
+        if (supportLevel < 0)
+        {
+
+            string title = regionName + " pulls out of climate agreement";
+            string text = "The governments of " + regionName + " are upset over global inaction and have exited the climate agreement.";
+            PopupWindow.ShowPopupWindowDelayed(null, title, text, 3f);
+            supportLevel = 0;
+        }
+        
     }
 
     public void SetColor()
@@ -177,11 +201,16 @@ public class MapRegion : MonoBehaviour
 
     public void ReduceEmissions(float amount)
     {
-        adjustedEmissionsPerCapita -= amount;
         if (adjustedEmissionsPerCapita < 0)
         {
-            adjustedEmissionsPerCapita = 0;
+            adjustedEmissionsPerCapita -= amount/3;
         }
+        else
+        {
+           adjustedEmissionsPerCapita -= amount; 
+        }
+        
+
     }
 
     public int GetPopulation()

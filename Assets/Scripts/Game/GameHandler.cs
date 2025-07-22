@@ -76,7 +76,7 @@ public class GameHandler : MonoBehaviour
         GameInfo.carbonInAtmosphere += GameInfo.emissionRate / 12;
         GameInfo.recentTemperatureChange = 12 * (GameInfo.averageTemperatureChange - oldTemperature);
 
-        float environmentalConstant = 0.05f;
+        float environmentalConstant = 0.15f;
         GameInfo.environment -= environmentalConstant * GameInfo.averageTemperatureChange * GameInfo.environmentResilience;
         
         
