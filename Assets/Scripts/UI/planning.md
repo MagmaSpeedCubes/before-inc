@@ -350,12 +350,54 @@ Ban the use of polluting petroleum products. Decreases emissions. Decreases supp
 
 Environment: Policies to restore environment
 
-[Construction Initiative]
+
+Development Initiative
+Research and prepare for a transition to greener construction.
+
+Land Use 1
+Redevelop urban dead zones into new neighborhoods to reduce impact on the environment. Slightly restore environment and reduce emissions
+
+Land Use 2
+Rezone urban lots to allow for higher density development to reduce impact on the environment. Signifiantly restore environment and reduce emeissions.
+
+Green Buildings 
+Require new developments to integrate well with the local ecosystem. Restore environment.
+
+Emergency Infrastructure I
+Retrofit existing infrastructure to alleviate extreme weather events. Restore environment.
+
+Emergency Infrastructure II
+Build infrastructure designed to alleviate extreme weather events. Very significantly restore environment.
+
+Integrated Developments(requires LU2, GB, EI2)
+Require all developments to integrate well with the local ecosystem. Very significantly restore environment.
 
 
 
-[Agricultural Initiative]
 
+Agrigultural Initiative
+Research and prepare for a transition to greener farming methods.
+
+Water Efficiency 1
+Ban the use of inefficient watering methods to reduce water use of farms. Significantly restore environment.
+
+Water Efficiency 2
+Use drip irrigation for the watering of thirsty crops. Very significantly restore environment.
+
+Fertilizer 1
+Reuse natural farm and compost products as agriculturan fertilizer. Restore environment.
+
+Fertilizer 2
+Ban the use of chemical fertilizers and pivot to natural alternatives. Significantly restore environment.
+
+Qualifications 1
+Require new farmers to learn about farming practices to improve efficiency. Slightly restore environment.
+
+Qualifications 2
+Require existing farmers to prove their experience to improve efficiency. Restore environment.
+
+Effective Land Use(Requires LU2 + Q2)
+Implement strict land use policies to ensure developed land is used as efficiently as possible. Very significantly restore environment.
 
 
 Creditss

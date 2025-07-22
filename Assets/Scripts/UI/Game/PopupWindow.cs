@@ -48,6 +48,7 @@ public class PopupWindow : MonoBehaviour
     }
     public void RenderPopupWindow(Sprite newImage, string title, string text)
     {
+        GameInfo.gameSpeed = 0;
         Canvas canvas = GetComponent<Canvas>();
         canvas.enabled = true;
         if (newImage != null)

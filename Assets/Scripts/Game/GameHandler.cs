@@ -30,6 +30,7 @@ public class GameHandler : MonoBehaviour
     {
 
         GameInfo.gameSpeed = 0;
+        GameInfo.environment = 100f;
 
         Timer.ResetTimer();
         Timer.StartTimer();
@@ -74,11 +75,16 @@ public class GameHandler : MonoBehaviour
         GameInfo.support = GameInfo.weightedSupportLevel / GameInfo.populationInMillions;
         GameInfo.carbonInAtmosphere += GameInfo.emissionRate / 12;
         GameInfo.recentTemperatureChange = 12 * (GameInfo.averageTemperatureChange - oldTemperature);
+
+        float environmentalConstant = 0.05f;
+        GameInfo.environment -= environmentalConstant * GameInfo.averageTemperatureChange * GameInfo.environmentResilience;
         
         
         
 
     }
+
+
 
     public void ShowDifficultySpecificPopup()
     {

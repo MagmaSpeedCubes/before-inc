@@ -402,27 +402,207 @@ public class PolicyFunctions : MonoBehaviour
         //this policy does not change any values, it only allows others to be unlocked.
     }
 
+    public void Insulation()
+    {
+        for (int i = 0; i < mapRegions.Length; i++)
+        {
+            mapRegions[i].ReduceEmissions(0.1f);
+        }
+    }
 
-    // Insulation
-    // Retrofit buildings to decrease thermal transfer and retain indoor temperatures. Decreases emissions.
+    public void ElectricAppliances()
+    {
+        for (int i = 0; i < mapRegions.Length; i++)
+        {
+            mapRegions[i].ReduceEmissions(0.04f);
+        }
+    }
 
-    // Electric Appliances
-    // Redesign existing household appliances to run on electrical power. Slightly decreases emissions.
 
-    // Energy Efficient Appliances
-    // Research and develop household appliances designed to run on low energy. Decreases emissions.
+    public void EnergyEfficientAppliances()
+    {
+        for (int i = 0; i < mapRegions.Length; i++)
+        {
+            mapRegions[i].ReduceEmissions(0.12f);
+        }
+    }
 
-    // LED Lighting
-    // Invest in and encourage the use of LED light bulbs. Slightly decreases emissions. 
+    public void LEDLighting()
+    {
+        for (int i = 0; i < mapRegions.Length; i++)
+        {
+            mapRegions[i].ReduceEmissions(0.08f);
+        }
+    }
 
-    // Renewable Energy
-    // Invest in and construct solar and wind power plants to generate clean energy. Significantly decreases emissions. Slightly increases support.
+    public void RenewableEnergy()
+    {
+        for (int i = 0; i < mapRegions.Length; i++)
+        {
+            mapRegions[i].ReduceEmissions(0.7f);
+            mapRegions[i].supportLevel += 5;
+        }
+    }
 
-    // Nuclear Energy
-    // Invest in and construct nuclear power plants to generate clean energy. Significantly decreases emissions. Slightly decreases support.
+    public void NuclearEnergy()
+    {
+        for (int i = 0; i < mapRegions.Length; i++)
+        {
+            mapRegions[i].ReduceEmissions(0.7f);
+            mapRegions[i].supportLevel -= 3;
+        }
 
-    // Cleaner Coal
-    // Retrofit older fossil fuel power plants to run more efficiently and produce less pollution. Slightly decreases emissions. Decreases support.
+        int randomIndex = UnityEngine.Random.Range(0, mapRegions.Length);
+        MapRegion randomRegion = mapRegions[randomIndex];
+        string regionName = randomRegion.GetName();
+        string title = regionName + " criticizes nuclear energy";
+        string text = "Environmentalists " + regionName + " protest the expansion of nuclear energy, citing Chernobyl and Fukushima as cases of the dangers of this energy source";
+        PopupWindow.ShowPopupWindowDelayed(null, title, text, 3f);
+    }
+
+    public void CleanerCoal()
+    {
+        for (int i = 0; i < mapRegions.Length; i++)
+        {
+            mapRegions[i].ReduceEmissions(0.2f);
+            mapRegions[i].supportLevel -= 5;
+        }
+    }
+
+
+    public void IndustrialInitiative()
+    {
+        int randomIndex = UnityEngine.Random.Range(0, mapRegions.Length);
+        MapRegion randomRegion = mapRegions[randomIndex];
+        string regionName = randomRegion.GetName();
+        string title = "Third industrial revolution in " + regionName;
+        string text = "Industry leaders in " + regionName + " are preparing to develop newer, more advanced materials and manufacturing techniques.";
+        PopupWindow.ShowPopupWindowDelayed(null, title, text, 3f);
+    }
+
+    public void ImproveSupplyChains()
+    {
+        for (int i = 0; i < mapRegions.Length; i++)
+        {
+            mapRegions[i].ReduceEmissions(0.2f);
+        }
+    }
+
+    public void SafetyRegulations()
+    {
+        for (int i = 0; i < mapRegions.Length; i++)
+        {
+            mapRegions[i].ReduceEmissions(0.03f);
+            mapRegions[i].supportLevel += 6;
+        }
+    }
+
+    public void ImprovedMaterials()
+    {
+        for (int i = 0; i < mapRegions.Length; i++)
+        {
+            mapRegions[i].ReduceEmissions(0.05f);
+
+        }
+    }
+
+    public void AdvancedMaterials()
+    {
+        for (int i = 0; i < mapRegions.Length; i++)
+        {
+            mapRegions[i].ReduceEmissions(0.1f);
+            mapRegions[i].supportLevel += 2;
+
+        }
+
+        int randomIndex = UnityEngine.Random.Range(0, mapRegions.Length);
+        MapRegion randomRegion = mapRegions[randomIndex];
+        string regionName = randomRegion.GetName();
+        string title = regionName + " material scientists create superpolymer";
+        string text = "Material engineers in " + regionName + " have synthesized a material from corn that matches steel in tensile strength. Aircraft and auto manufactures are interested in the technology.";
+        PopupWindow.ShowPopupWindowDelayed(null, title, text, 3f);
+    }
+
+    public void RegulatePetroleumProducts()
+    {
+        for (int i = 0; i < mapRegions.Length; i++)
+        {
+            mapRegions[i].ReduceEmissions(0.05f);
+
+
+        }
+    }
+
+    public void BanPetroleumProducts()
+    {
+        for (int i = 0; i < mapRegions.Length; i++)
+        {
+            mapRegions[i].ReduceEmissions(0.1f);
+            mapRegions[i].supportLevel -= 4;
+
+        }
+
+
+        int randomIndex = UnityEngine.Random.Range(0, mapRegions.Length);
+        MapRegion randomRegion = mapRegions[randomIndex];
+        string regionName = randomRegion.GetName();
+        string title = regionName + " becomes first region to ban petroleum products";
+        string text = "In a bold move for the climate initiative " + regionName + " has completely outlawed petroleum products. The effect on pollution is yet to be measured.";
+        PopupWindow.ShowPopupWindowDelayed(null, title, text, 3f);
+    }
+
+
+
+
+
+
+// Development Initiative
+// Research and prepare for a transition to greener construction.
+
+// Land Use 1
+// Redevelop urban dead zones into new neighborhoods to reduce impact on the environment. Slightly restore environment and reduce emissions
+
+// Land Use 2
+// Rezone urban lots to allow for higher density development to reduce impact on the environment. Signifiantly restore environment and reduce emeissions.
+
+// Green Buildings 
+// Require new developments to integrate well with the local ecosystem. Restore environment.
+
+// Emergency Infrastructure I
+// Retrofit existing infrastructure to alleviate extreme weather events. Restore environment.
+
+// Emergency Infrastructure II
+// Build infrastructure designed to alleviate extreme weather events. Very significantly restore environment.
+
+// Integrated Developments(requires LU2, GB, EI2)
+// Require all developments to integrate well with the local ecosystem. Very significantly restore environment.
+
+
+
+
+// Agrigultural Initiative
+// Research and prepare for a transition to greener farming methods.
+
+// Water Efficiency 1
+// Ban the use of inefficient watering methods to reduce water use of farms. Signfiicantly reduce Support. Significantly restore environment.
+
+// Water Efficiency 2
+// Use drip irrigation for the watering of thirsty crops. Very significantly restore environment.
+
+// Fertilizer 1
+// Reuse natural farm and compost products as agriculturan fertilizer. Reduce support. Restore environment.
+
+// Fertilizer 2
+// Ban the use of chemical fertilizers and pivot to natural alternatives. Reduce support. Significantly restore environment.
+
+// Qualifications 1
+// Require new farmers to learn about farming practices to improve efficiency. Slightly restore environment.
+
+// Qualifications 2
+// Require existing farmers to prove their experience to improve efficiency. Restore environment.
+
+// Effective Land Use(Requires LU2 + Q2)
+// Implement strict land use policies to ensure developed land is used as efficiently as possible. Very significantly restore environment.
 
 
 
